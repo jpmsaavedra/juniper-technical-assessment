@@ -1,10 +1,10 @@
 /* --- CSS Variables --- */
 :root {
-  --color-primary-dark: #132B4B;
-  --color-overlay: rgba(19, 43, 75, 0.80);
-  --color-off-white: #FFFFFF;
-  --color-light-blue-text: #A1C9E7;
-  --color-accent-blue: #5EB3E4;
+  --color-primary-dark: #132b4b;
+  --color-overlay: rgba(19, 43, 75, 0.8);
+  --color-off-white: #ffffff;
+  --color-light-blue-text: #a1c9e7;
+  --color-accent-blue: #5eb3e4;
   --color-overlay-hover: rgba(94, 179, 228, 0.75);
 
   --font-family-body: 'NotoSerif-SemiBold', Arial, sans-serif;
@@ -23,14 +23,14 @@
 }
 
 @font-face {
-  font-family: "NotoSerif-SemiBold";
+  font-family: 'NotoSerif-SemiBold';
   src: url('assets/Fonts/Noto Serif/NotoSerif-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "FigTree-SemiBold";
+  font-family: 'FigTree-SemiBold';
   src: url('assets/Fonts/Figtree/Figtree-SemiBold.ttf');
   font-weight: 600;
   font-style: normal;
@@ -138,8 +138,18 @@ body {
 
 /* Opacity gradient mask */
 .mask {
-  mask-image: linear-gradient(to bottom, transparent 5%, black, transparent 95%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 5%, black, transparent 95%);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 5%,
+    black,
+    transparent 95%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 5%,
+    black,
+    transparent 95%
+  );
 }
 
 /* Content layer for icon, title, and description */
@@ -207,7 +217,6 @@ body {
   transform: rotate(180deg);
 }
 
-
 /* --- Hover Effects --- */
 .journey-stage:hover .stage-icon {
   transform: scale(1.05);
@@ -217,7 +226,7 @@ body {
   transform: scale(1.05);
 }
 
-.journey-stage:hover .stage-background::after{
+.journey-stage:hover .stage-background::after {
   background-color: var(--color-overlay-hover);
 }
 

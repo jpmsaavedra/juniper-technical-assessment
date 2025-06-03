@@ -1,68 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tower House - Journey Section</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <section class="section-wrapper">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Tower House - Journey Section</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <section class="section-wrapper">
+      <div class="title-container">
+        <h1>The Tower House Journey</h1>
+      </div>
 
-    <div class="title-container">
-      <h1>The Tower House Journey</h1>
-    </div>
+      <div class="journey-section">
+        <svg
+          viewBox="0 0 420 40"
+          preserveAspectRatio="none"
+          class="line-svg line-svg-left">
+          <path
+            d="M 0 0 Q 210 70 420 0"
+            stroke="#5EB3E4"
+            stroke-width="3"
+            fill="none"
+            stroke-dasharray="10, 10" />
+        </svg>
+        <svg
+          viewBox="0 0 420 40"
+          preserveAspectRatio="none"
+          class="line-svg line-svg-right">
+          <path
+            d="M 0 0 Q 210 70 420 0"
+            stroke="#5EB3E4"
+            stroke-width="3"
+            fill="none"
+            stroke-dasharray="10, 10" />
+        </svg>
 
-    <div class="journey-section">
-
-      <svg viewBox="0 0 420 40" preserveAspectRatio="none" class="line-svg line-svg-left">
-              <path d="M 0 0 Q 210 70 420 0"
-              stroke="#5EB3E4" stroke-width="3" fill="none"
-              stroke-dasharray="10, 10" />
-      </svg>
-      <svg viewBox="0 0 420 40" preserveAspectRatio="none" class="line-svg line-svg-right">
-              <path d="M 0 0 Q 210 70 420 0"
-              stroke="#5EB3E4" stroke-width="3" fill="none"
-              stroke-dasharray="10, 10" />
-      </svg>
-
-      <!-- Individual Journey Stage Card: Reception -->
-      <div class="journey-stage" id="reception">
-        <div class="stage-background mask">
-          <div class="stage-background-inner"></div>
-        </div>
-        <div class="stage-content">
-            <img src="assets/tower-logo.svg" alt="Tower Icon" class="stage-icon">
+        <!-- Individual Journey Stage Card: Reception -->
+        <div
+          class="journey-stage"
+          id="reception">
+          <div class="stage-background mask">
+            <div class="stage-background-inner"></div>
+          </div>
+          <div class="stage-content">
+            <img
+              src="assets/tower-logo.svg"
+              alt="Tower Icon"
+              class="stage-icon" />
             <h2>Reception</h2>
             <p>RECEPTION - YEAR 3</p>
+          </div>
+        </div>
+
+        <!-- Individual Journey Stage Card: Junior School -->
+        <div
+          class="journey-stage"
+          id="junior-school">
+          <div class="stage-background mask">
+            <div class="stage-background-inner"></div>
+          </div>
+          <div class="stage-content">
+            <img
+              src="assets/tower-logo.svg"
+              alt="Tower Icon"
+              class="stage-icon" />
+            <h2>Junior School</h2>
+            <p>YEAR 4 - YEAR 6</p>
+          </div>
+        </div>
+
+        <!-- Individual Journey Stage Card: Senior School -->
+        <div
+          class="journey-stage"
+          id="senior-school">
+          <div class="stage-background mask">
+            <div class="stage-background-inner"></div>
+          </div>
+          <div class="stage-content">
+            <img
+              src="assets/tower-logo.svg"
+              alt="Tower Icon"
+              class="stage-icon" />
+            <h2>Senior School</h2>
+            <p>YEAR 6 - YEAR 7</p>
+          </div>
         </div>
       </div>
-
-      <!-- Individual Journey Stage Card: Junior School -->
-      <div class="journey-stage" id="junior-school">
-        <div class="stage-background mask">
-          <div class="stage-background-inner"></div>
-        </div>
-        <div class="stage-content">
-          <img src="assets/tower-logo.svg" alt="Tower Icon" class="stage-icon">
-          <h2>Junior School</h2>
-          <p>YEAR 4 - YEAR 6</p>
-        </div>
-      </div>
-
-      <!-- Individual Journey Stage Card: Senior School -->
-      <div class="journey-stage" id="senior-school">
-        <div class="stage-background mask">
-          <div class="stage-background-inner"></div>
-        </div>
-        <div class="stage-content">
-          <img src="assets/tower-logo.svg" alt="Tower Icon" class="stage-icon">
-          <h2>Senior School</h2>
-          <p>YEAR 6 - YEAR 7</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-</body>
+    </section>
+  </body>
 </html>
