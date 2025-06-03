@@ -1,0 +1,321 @@
+/* --- CSS Variables --- */
+:root {
+  --color-primary-dark: #101d32;
+  --color-gradient-start: #245aab;
+  --color-card-background: #162847;
+  --color-off-white: #e0e0e0;
+  --color-white: #ffffff;
+  --color-light-blue-text: #becde0;
+  --color-accent-blue: #7cbadf;
+  --color-modal-overlay: rgba(0, 0, 0, 0.8);
+  --color-card-overlay-blue: rgba(19, 43, 75, 0.2);
+  --color-image-wrapper-dark: #0c1a2f;
+
+  --font-family-body: 'NotoSerif-SemiBold', Arial, sans-serif;
+  --font-family-paragraph: 'FigTree-SemiBold', sans-serif;
+}
+
+/* --- Global Resets & Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'NotoSerif-SemiBold';
+  src: url('assets/Fonts/Noto Serif/NotoSerif-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FigTree-SemiBold';
+  src: url('assets/Fonts/Figtree/Figtree-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background: linear-gradient(
+    0deg,
+    var(--color-gradient-start) 0%,
+    var(--color-primary-dark) 100%
+  );
+  color: var(--color-white);
+  line-height: 1.6;
+}
+
+/* --- Layout & Structure --- */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.title-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.title-container h1 {
+  font-size: 2.8em;
+  font-weight: 600;
+  color: var(--color-off-white);
+  letter-spacing: 1px;
+}
+
+/* --- Component Styling: Meet Faculty Section --- */
+.meet-faculty {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.meet-faculty::before {
+  content: '';
+  position: absolute;
+  left: -25%;
+  top: -25%;
+  width: 1500px;
+  height: 1500px;
+  opacity: 0.1;
+  background-image: url(assets/school-logo.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Faculty Card Styles */
+.faculty-card {
+  background-color: var(--color-card-background);
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.faculty-card-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%;
+  overflow: hidden;
+}
+
+.faculty-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: filter 0.4s ease-out;
+  mask-image: linear-gradient(to bottom, black, transparent 99%);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent 99%);
+}
+
+.faculty-card-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-card-overlay-blue);
+  z-index: 1;
+}
+
+.faculty-card-content {
+  padding: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.faculty-card-content h3 {
+  font-size: 1.5em;
+  color: var(--color-white);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.faculty-card-content p {
+  font-family: var(--font-family-paragraph);
+  font-size: 0.9em;
+  color: var(--color-light-blue-text);
+  margin-bottom: 0;
+}
+
+/* --- Component Styling: Modal --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-modal-overlay);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-out, visibility 0.4s ease-out;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background-color: var(--color-card-background);
+  color: var(--color-white);
+  padding: 30px;
+  max-width: 700px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.modal-overlay.is-open .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: var(--color-white);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  transition: color 0.4s ease-out;
+}
+
+.modal-close:hover {
+  color: var(--color-accent-blue);
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-body .modal-image-wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  background-color: var(--color-image-wrapper-dark);
+  box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+.modal-body .modal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: filter 0.4s ease-out;
+}
+
+.modal-body h3 {
+  font-size: 2em;
+  margin-bottom: 5px;
+  color: var(--color-white);
+  font-weight: 500;
+}
+
+.modal-body p {
+  font-family: var(--font-family-paragraph);
+  font-size: 1em;
+  color: var(--color-light-blue-text);
+  line-height: 1.8;
+}
+
+.modal-body .modal-role {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: var(--color-accent-blue);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+  .title-container h1 {
+    font-size: 2.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 30px 15px;
+  }
+  .title-container {
+    margin-bottom: 40px;
+  }
+  .title-container h1 {
+    font-size: 2em;
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .faculty-card-content h3 {
+    font-size: 1.3em;
+  }
+  .faculty-card-content p {
+    font-size: 0.85em;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+  .modal-body h3 {
+    font-size: 1.8em;
+  }
+  .modal-body .modal-role {
+    font-size: 1em;
+  }
+  .modal-body p {
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 480px) {
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+}

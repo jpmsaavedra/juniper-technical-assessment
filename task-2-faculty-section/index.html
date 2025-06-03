@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Meet Our Faculty - Custom Section</title>
+    <link
+      rel="stylesheet"
+      href="styles.css" />
+  </head>
+  <body>
+    <section class="meet-faculty">
+      <div class="content-wrapper">
+        <div class="title-container">
+          <h1>Meet Our Faculty</h1>
+        </div>
+
+        <div
+          class="faculty-grid"
+          id="facultyGrid">
+          <!-- Faculty cards will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="modal-overlay"
+      id="facultyModalOverlay"
+      role="dialog"
+      aria-modal="true"
+      tabindex="-1"
+      aria-labelledby="modalTitle">
+      <div class="modal-content">
+        <button
+          class="modal-close"
+          aria-label="Close modal">
+          ×
+        </button>
+        <div
+          class="modal-body"
+          id="modalBody">
+          <!-- Detailed faculty info will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
